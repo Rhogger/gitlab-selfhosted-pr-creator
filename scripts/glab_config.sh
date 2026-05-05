@@ -4,7 +4,7 @@
 # Script de Configuração Rápida do GLAB (GitLab CLI)
 # =================================================================
 
-# 1. Defina o Host (IP e Porta) do seu GitLab
+# 1. Defina o Host (IP e Porta) do seu GitLab, nao deve incluir http:// ou https://
 HOST="<IP:PORT>"
 
 # 2. Cole seu Personal Access Token (PAT) abaixo
@@ -14,7 +14,7 @@ TOKEN="<COLE_SEU_TOKEN_AQUI>"
 PROTOCOL="http"
 
 # Verificação básica
-if [ "$TOKEN" == "<COLE_SEU_TOKEN_AQUI>" ] || [ -z "$TOKEN" ]; then
+if [ -z "$TOKEN" ]; then
     echo "❌ ERRO: Você precisa editar este arquivo e inserir seu TOKEN."
     exit 1
 fi
