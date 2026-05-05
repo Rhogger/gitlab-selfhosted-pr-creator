@@ -7,9 +7,11 @@ description: Cria Merge Requests no GitLab self-hosted seguindo um workflow de 4
 
 Esta skill automatiza a criação de Merge Requests (MRs) de alta qualidade em instâncias self-hosted do GitLab, analisando semântica de commits e código para gerar descrições precisas.
 
-## 🚀 Configuração Rápida (Executar apenas uma vez)
+## 🚀 Configuração Rápida (Primeiro uso — executar apenas uma vez)
 
-Antes de começar, você precisa configurar o `glab`. Se ainda não fez, siga estes passos:
+> **Importante**: Esta skill **NÃO** configura nem valida o `glab`. Ela apenas cria o MR. A configuração é responsabilidade do usuário e deve ser feita **uma única vez**, no primeiro uso, executando o script `scripts/glab_config.sh`.
+
+Se ainda não configurou, siga estes passos:
 
 ### 1. Gerar seu Token (PAT)
 
@@ -88,7 +90,8 @@ Digerir os dados para definir a estratégia:
 Gere o conteúdo final e execute:
 
 - **Template**: Busque o template correspondente em `references/` relativo à raiz desta skill.
-- **CLI**: Use `glab mr create` para abrir o MR.
+- **CLI**: Use `glab mr create` para abrir o MR. Assuma que o `glab` já está instalado e autenticado — **não execute** comandos de validação (`glab auth status`, `glab --version`, `which glab`, etc.) antes de criar o MR.
+- **Falha de autenticação**: Se o `glab mr create` retornar erro de host não cadastrado, token inválido/expirado ou similar, **PARE** e oriente o usuário a executar o script `scripts/glab_config.sh` (seção "🚀 Configuração Rápida"). Não tente reconfigurar o `glab` por conta própria.
 - **RESTRIÇÃO**: NÃO faça `git commit`, `git push` ou crie arquivos de mensagem físicos. O MR deve ser aberto diretamente via CLI.
 
 ## Comandos Úteis
