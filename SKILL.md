@@ -22,27 +22,13 @@ Se ainda não configurou, siga estes passos:
 
 ### 2. Configurar via Script (Recomendado)
 
-Existe um script pronto para facilitar a configuração. Basta editá-lo com seu token e executá-lo:
+Existe um script pronto para facilitar a configuração. Basta editá-lo com seu host e token para então executá-lo:
 
 1. Edite o arquivo: `scripts/glab_config.sh`
 2. Execute no terminal:
    ```bash
    ./scripts/glab_config.sh
    ```
-
-### 3. Ou via Comando Único
-
-Substitua o host e o token no comando abaixo e execute-o no terminal:
-
-```bash
-# Ajuste o host (IP/Porta) e o Token conforme sua realidade
-HOST="<IP:PORT>"
-TOKEN="<COLE_SEU_TOKEN_AQUI>"
-
-glab config set -h $HOST api_protocol http && \
-glab config set -h $HOST token $TOKEN && \
-glab auth status --hostname $HOST
-```
 
 ---
 
