@@ -35,6 +35,7 @@ echo "🚀 Configurando glab para $HOST (API em $API_HOST via $PROTOCOL)..."
 glab config set -h "$HOST" api_protocol "$PROTOCOL" && \
 glab config set -h "$HOST" api_host "$API_HOST" && \
 glab config set -h "$HOST" token "$TOKEN" && \
+glab config set host "$HOST" && \
 glab auth status --hostname "$HOST"
 
 if [ $? -eq 0 ]; then
