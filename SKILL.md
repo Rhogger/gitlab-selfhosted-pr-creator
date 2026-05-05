@@ -37,6 +37,7 @@ Existe um script pronto para facilitar a configuração. Basta editá-lo com seu
 Substitua os placeholders abaixo no arquivo `SKILL.md` da sua instalação local para evitar perguntas repetidas:
 
 - **URL da Instância**: `<URL_DO_GITLAB_DA_EMPRESA>` (ex.: `http://[IP]/[DOMINIO]`)
+- **Repositório**: `<NAMESPACE>/<PROJETO>` (ex.: `financas/api-pagamentos`)
 - **Autores (assignees)**: `<USERNAME_1_GITLAB>, <USERNAME_2_GITLAB>` (ex.: `alison, vanessa`)
 - **Revisores (reviewers)**: `<REVISOR_1_USERNAME>, <REVISOR_2_USERNAME>` (ex.: `alison, vanessa`)
 - **Branches bloqueadas**: `main`, `master`, `dev`, `hml`
@@ -77,6 +78,7 @@ Gere o conteúdo final e execute:
 
 - **Template**: Busque o template correspondente em `references/` relativo à raiz desta skill.
 - **CLI**: Use `glab mr create` para abrir o MR. Assuma que o `glab` já está instalado e autenticado — **não execute** comandos de validação (`glab auth status`, `glab --version`, `which glab`, etc.) antes de criar o MR.
+- **Repositório**: Se o metadado **Repositório** estiver preenchido, utilize-o obrigatoriamente com a flag `-R <NAMESPACE/PROJETO>` no comando de criação.
 - **Falha de autenticação**: Se o `glab mr create` retornar erro de host não cadastrado, token inválido/expirado ou similar, **PARE** e oriente o usuário a executar o script `scripts/glab_config.sh` (seção "🚀 Configuração Rápida"). Não tente reconfigurar o `glab` por conta própria.
 - **RESTRIÇÃO**: NÃO faça `git commit`, `git push` ou crie arquivos de mensagem físicos. O MR deve ser aberto diretamente via CLI.
 
@@ -84,4 +86,4 @@ Gere o conteúdo final e execute:
 
 - Verificação de branch: `git branch --show-current`
 - Log de commits: `git log origin/main..HEAD --format="%H"`
-- Criar MR: `glab mr create --title "[BRANCH-NAME] TIPO: Impacto principal" --description "Conteúdo" --assignee "seu-user" --reviewer "username"`
+- Criar MR: `glab mr create -R "namespace/projeto" --title "[BRANCH-NAME] TIPO: Impacto principal" --description "Conteúdo" --assignee "seu-user" --reviewer "username"` (A flag `-R` é opcional se o `glab` já reconhecer o repo local).
